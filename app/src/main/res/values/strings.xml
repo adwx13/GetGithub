@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GetGithub</string>
+    <string name="user_search">사용자 검색</string>
+    <string name="created_date">생성일 : %s</string>
+</resources>
