@@ -2,4 +2,10 @@
     <string name="app_name">GetGithub</string>
     <string name="user_search">사용자 검색</string>
     <string name="created_date">생성일 : %s</string>
+    <string name="public_repos_cnt">공개 저장소 (%d)</string>
+    <string name="request_repositories_to_server">원격 저장소 데이터 요청</string>
+    <string name="empty_repository">표시할 원격 저장소가 없습니다.</string>
+    <string name="empty_search_result">검색 결과가 없습니다.</string>
+    <string name="failed_request_to_server">서버 호출에 실패했습니다.</string>
+    <string name="succeed_request_to_server">서버 호출에 성공했습니다.</string>
 </resources>

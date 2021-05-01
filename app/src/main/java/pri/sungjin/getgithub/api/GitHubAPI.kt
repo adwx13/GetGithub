@@ -1,6 +1,7 @@
 package pri.sungjin.getgithub.api
 
 import pri.sungjin.getgithub.api.repository.GitRepositoriesResult
+import pri.sungjin.getgithub.api.repository.GitRepositoriesResultItem
 import pri.sungjin.getgithub.api.user.GitUserResult
 import retrofit2.Call
 import retrofit2.http.GET
@@ -15,4 +16,8 @@ interface GitHubAPI {
 
     @GET("users/{userid}/repos")
     fun getUserRepositories(@Path("userid") id: String): Call<GitRepositoriesResult>
+
+    @GET("repos/{userid}/{repository}")
+    fun getRepository(@Path("userid") id: String
+                      ,@Path("repository") name: String) : Call<GitRepositoriesResultItem>
 }

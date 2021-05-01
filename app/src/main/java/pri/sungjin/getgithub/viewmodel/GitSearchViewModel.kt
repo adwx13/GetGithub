@@ -31,13 +31,19 @@ class GitSearchViewModel @Inject constructor() : BaseViewModel() {
         _gitRepositories.postValue(value)
     }
 
-    fun getDateTextByIsoFormat(dateStr: String): String {
-        val splitStr = dateStr.split("T")
+    fun getDateTextByIsoFormat(dateStr: String?): String {
         var returnStr = ""
-        if (splitStr.isNotEmpty()) {
-            returnStr = GetGithub.instance.resources.getString(R.string.created_date,splitStr[0])
+        if (dateStr != null) {
+            val splitStr = dateStr.split("T")
+            if (splitStr.isNotEmpty()) {
+                returnStr = GetGithub.instance.resources.getString(R.string.created_date, splitStr[0])
+            }
         }
         return returnStr
+    }
+
+    fun getPublicResos(cnt: Int): String {
+        return GetGithub.instance.resources.getString(R.string.public_repos_cnt, cnt)
     }
 
 }

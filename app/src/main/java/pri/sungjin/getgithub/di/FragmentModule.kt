@@ -5,6 +5,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
 import dagger.hilt.android.scopes.FragmentScoped
+import pri.sungjin.getgithub.api.GitHubAPI
+import pri.sungjin.getgithub.database.FavoriteRepository
 import pri.sungjin.getgithub.ui.adapter.GitRepositoryListAdapter
 
 @InstallIn(FragmentComponent::class)
@@ -13,7 +15,7 @@ object FragmentModule {
 
     @Provides
     @FragmentScoped
-    fun provideGitRepositoryListAdapter(): GitRepositoryListAdapter {
-        return GitRepositoryListAdapter()
+    fun provideGitRepositoryListAdapter(favoriteRepository: FavoriteRepository): GitRepositoryListAdapter {
+        return GitRepositoryListAdapter(favoriteRepository = favoriteRepository)
     }
 }

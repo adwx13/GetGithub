@@ -1,5 +1,7 @@
 package pri.sungjin.getgithub.api.repository
 
+import pri.sungjin.getgithub.database.FavoriteReposEntity
+
 data class GitRepositoriesResultItem(
     val archive_url: String?,
     val archived: Boolean?,
@@ -37,7 +39,7 @@ data class GitRepositoriesResultItem(
     val homepage: Any?,
     val hooks_url: String?,
     val html_url: String?,
-    val id: Int?,
+    val id: Int = 0,
     val issue_comment_url: String?,
     val issue_events_url: String?,
     val issues_url: String?,
@@ -73,5 +75,8 @@ data class GitRepositoriesResultItem(
     val updated_at: String?,
     val url: String?,
     val watchers: Int?,
-    val watchers_count: Int?
-)
+    val watchers_count: Int?) {
+    fun getFavoriteReposEntity(): FavoriteReposEntity {
+        return FavoriteReposEntity(id, owner?.login,name, language, description, html_url)
+    }
+}
