@@ -1,6 +1,7 @@
 package pri.sungjin.getgithub.activity
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.tabs.TabLayoutMediator
@@ -8,6 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import pri.sungjin.getgithub.R
 import pri.sungjin.getgithub.databinding.ActivityMainBinding
 import pri.sungjin.getgithub.ui.adapter.MainFragmentAdapter
+import pri.sungjin.getgithub.util.RxEventBus
 import pri.sungjin.getgithub.viewmodel.BaseBindingComponent
 import pri.sungjin.getgithub.viewmodel.MainViewModel
 import javax.inject.Inject
@@ -34,10 +36,12 @@ class MainActivity : BaseActivity() {
         binding.viewPager.isUserInputEnabled = false
         binding.viewPager.adapter = fragmentAdapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            tab.text = position.toString()
+            if (position == 0) {
+                tab.setText(R.string.search)
+            } else {
+                tab.setText(R.string.favorite)
+            }
         }.attach()
-
-
-
     }
+
 }

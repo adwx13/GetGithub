@@ -19,7 +19,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/search_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/search_edit_layout"
@@ -170,7 +172,7 @@
                 app:layout_constraintTop_toBottomOf="@id/repository_cnt">
 
                 <TextView
-                    android:id="@+id/reload_btn"
+                    android:id="@+id/repos_load_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
@@ -189,6 +191,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="vertical"
                 android:visibility="@{viewModel.gitRepositories.size() == 0 ? View.GONE : View.VISIBLE, default = visible}"
+                tools:listitem="@layout/git_repository_item"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/repository_cnt" />

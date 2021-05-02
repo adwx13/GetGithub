@@ -15,8 +15,8 @@ import pri.sungjin.getgithub.ui.adapter.MainFragmentAdapter
 object ActivityModule {
     @Provides
     @ActivityScoped
-    fun provideMainFragmentAdapter(fragmentActivity: FragmentActivity, gitHubApi: GitHubAPI): MainFragmentAdapter {
-        return MainFragmentAdapter(fragmentActivity, gitHubApi)
+    fun provideMainFragmentAdapter(fragmentActivity: FragmentActivity): MainFragmentAdapter {
+        return MainFragmentAdapter(fragmentActivity)
     }
 
 }

@@ -7,7 +7,7 @@ import pri.sungjin.getgithub.api.GitHubAPI
 import pri.sungjin.getgithub.ui.fragment.FavoriteRepositoryFragment
 import pri.sungjin.getgithub.ui.fragment.GitSearchFragment
 
-class MainFragmentAdapter(fragmentActivity: FragmentActivity, private val gitHubAPI: GitHubAPI): FragmentStateAdapter(fragmentActivity) {
+class MainFragmentAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount(): Int {
         return 2
@@ -15,7 +15,7 @@ class MainFragmentAdapter(fragmentActivity: FragmentActivity, private val gitHub
 
     override fun createFragment(position: Int): Fragment {
         return if (position == 0) {
-            GitSearchFragment(gitHubAPI)
+            GitSearchFragment()
         } else {
             FavoriteRepositoryFragment()
         }

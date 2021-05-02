@@ -8,4 +8,9 @@
     <string name="empty_search_result">검색 결과가 없습니다.</string>
     <string name="failed_request_to_server">서버 호출에 실패했습니다.</string>
     <string name="succeed_request_to_server">서버 호출에 성공했습니다.</string>
+    <string name="favorite_list">찜 목록</string>
+    <string name="remove_favorite_item">%s가 찜 목록에서 제거되었습니다.</string>
+    <string name="search">검색</string>
+    <string name="favorite">찜</string>
+    <string name="restore">새로고침</string>
 </resources>

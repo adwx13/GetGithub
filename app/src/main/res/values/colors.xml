@@ -11,5 +11,8 @@
     <color name="tansparent">#00000000</color>
     <color name="favorite_off">#FFDED5CE</color>
     <color name="favorite_on">#FFE28989</color>
+    <color name="favorite_item_bg">#FFF6EBE7</color>
+    <color name="toolbar">#FF665359</color>
+    <color name="toolbar_text">#FFF3F3ED</color>
 
 </resources>

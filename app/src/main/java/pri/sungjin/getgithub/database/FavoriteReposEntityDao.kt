@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface FavoriteReposEntityDao : FavoriteRepository {
 
-    @Query("SELECT * FROM favorite_repository ORDER BY reg_date DESC")
+    @Query("SELECT * FROM favorite_repository ORDER BY userid DESC")
     override fun getAll(): LiveData<List<FavoriteReposEntity>>
 
     @Query("SELECT * FROM favorite_repository WHERE repositoryId = :repositoryId")

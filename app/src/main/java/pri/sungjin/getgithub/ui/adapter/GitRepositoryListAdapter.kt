@@ -4,15 +4,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.schedulers.Schedulers.io
+import io.reactivex.subjects.PublishSubject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pri.sungjin.getgithub.R
 import pri.sungjin.getgithub.api.repository.GitRepositoriesResult
-import pri.sungjin.getgithub.database.FavoriteReposEntity
 import pri.sungjin.getgithub.database.FavoriteRepository
 import pri.sungjin.getgithub.databinding.GitRepositoryItemBinding
 import pri.sungjin.getgithub.viewmodel.BaseBindingComponent
+import java.util.concurrent.TimeUnit
 
 class GitRepositoryListAdapter(var items: GitRepositoriesResult = GitRepositoriesResult(), var favoriteHash: HashSet<Int> = hashSetOf(), val favoriteRepository: FavoriteRepository): RecyclerView.Adapter<GitRepositoryListAdapter.GitRepositoryListHolder>() {
 
@@ -33,12 +38,11 @@ class GitRepositoryListAdapter(var items: GitRepositoriesResult = GitRepositorie
         holder.binding.htmlUrl.text = item.html_url
         holder.binding.favoriteBtn.isSelected = favoriteHash.contains(item.id)
         holder.binding.favoriteBtn.setOnClickListener {
-            if (it.isSelected) {
-                CoroutineScope(Dispatchers.IO).launch {
+            val isSelected = it.isSelected
+            CoroutineScope(Dispatchers.IO).launch {
+                if (isSelected) {
                     favoriteRepository.deleteByRepositoryId(item.id)
-                }
-            } else {
-                CoroutineScope(Dispatchers.IO).launch {
+                } else {
                     favoriteRepository.insert(item.getFavoriteReposEntity())
                 }
             }

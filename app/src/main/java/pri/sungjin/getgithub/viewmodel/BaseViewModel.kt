@@ -11,7 +11,7 @@ open class BaseViewModel: ViewModel() {
         _snackbarMsg.postValue(Event(msg))
     }
 
-
+    open fun initViewModel() { }
 
 
 
