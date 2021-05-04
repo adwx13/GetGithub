@@ -3,15 +3,15 @@ package pri.sungjin.getgithub.util
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
-class RxEventBus {
+class LifeCycleBus {
     companion object {
         @Volatile
-        private var sInstance: RxEventBus? = null
+        private var sInstance: LifeCycleBus? = null
 
-        fun getInstance(): RxEventBus {
-            synchronized(RxEventBus::class.java) {
+        fun BUS(): LifeCycleBus {
+            synchronized(LifeCycleBus::class.java) {
                 if (sInstance == null) {
-                    sInstance = RxEventBus()
+                    sInstance = LifeCycleBus()
                 }
             }
             return sInstance!!
